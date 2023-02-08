@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .caja{
+            border: 2px solid blue;
+            width: 300px;
+            height: 300px;
+        }
+        #caja1{
+            
+            background-color:brown ;
+        }
+
+
+        #caja2{
+            position: relative;
+            left: 200px;
+            background-color:blueviolet ;
+
+        }
+
+       
+
+        
+
+        #caja3{
+            position: relative;
+            background-color:yellow ;
+
+        }
+
+        #caja4{
+            position: absolute;
+            width: 60px;
+            height: 50px;
+            top: 40px;
+            left: 50px;
+            background-color:green ;
+
+        }
+        #caja5{
+            position: fixed;
+            background-color:yellowgreen ;
+            right: 50px;
+            left: 400px;
+            top: 300px;
+
+
+
+
+        }
+        #caja6, #caja7{
+            
+            background-color:indianred ;
+           
+        }
+       
+    </style>
+</head>
+
+
+<body>
+    <div id="caja1" class="caja">Static</div>
+    <div id="caja2" class="caja">Relative</div>
+    <div id="caja3"class="caja"> Relative
+        <div id="caja4" class="caja">Absolute</div>
+    </div>
+    <div id="caja5" class="caja">Fixed</div>
+    <div id="caja6" class="caja">Relative</div> 
+    <div id="caja7" class="caja">Relative</div>
+    
+
+</body>
+</html>
