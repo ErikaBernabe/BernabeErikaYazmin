@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+
+#contenedor{
+    width: 100%;
+    height: 100%;
+}
+
+#encabezado{
+    background-color: blue;
+    width: 100%;
+    height: 20%;
+}
+
+#barralat{
+    float: left; /* flotan de izquierda a derecha*/
+    background-color: yellow;
+    width: 200px;
+    height: 70%;
+
+}
+#contenido{
+    margin-left: 200px;
+    /*float: left;*/
+    background-color: salmon;
+    /*width: 100%;*/
+    width: calc(100% - 200px);/*permite usar metodos matematicas*/
+    height: 70%;
+    
+}
+#piepagina{
+    background-color: blueviolet;
+    width: 100%;
+    height: 10%;
+
+}
+
+
+/*3 puntos extra*/
+/*Me anoto 3 puntos extra ya que le dije al profe en clase que le falto el # al contenedor*/
