@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* div  p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: green;
+} */
+
+
+
+/* div > p.paragraph{
+    color: blue;
+} */
+
+
+
+/* div.outside + p{
+    color: blueviolet;
+} */
+
+
+/* 
+h2 ~ p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: aliceblue;
+    background-color: blue;
+} */
+
+/* h2 ~ p::first-letter{
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aqua;
+} */
+
+
+/* div > p:first-line{
+    color: yellow;
+    background-color: aqua;
+
+} */
+
+/* div.outside + p:hover{
+    color: antiquewhite;
+    background-color: black;
+} */
+
+/* h2 ~ p:active{
+    background-color:green;
+} */
+
+/* div a:link{
+    color: brown;
+    background-color: gray;
+} */
+
+
+/* No funciona */
+ /* a:visited{
+    color: aqua;
+    background-color: white;
+} */
+

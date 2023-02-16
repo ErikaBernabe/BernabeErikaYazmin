@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#contenedorExterno {
+    width: 700px;
+    height: 300px;
+    background-color: magenta;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#contenedorInterno {
+    border: 5px solid black;
+}
+
+.caja {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+  /* #contenedorExterno .caja {      
+    background-color: yellow;
+}    */
+
+
+ /* #contenedorInterno > .caja {      
+    background-color: white;
+}    */
+
+
+   /* #caja1.caja {                 
+    background-color: blue;
+}    */
+
+/* #caja1 + div{
+    background-color: blueviolet;
+} */
+
