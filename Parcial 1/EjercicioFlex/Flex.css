@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.padre{
+    
+    background-color: blueviolet;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-wrap: no-wrap; */
+    justify-content: center;
+    gap: 10px;
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+
+    /* align-content: center; */
+    /* align-content: end; */
+
+
+}
+.hijo{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    border: 1px solid orange;
+    color: aliceblue;
+
+   
+
+}
+
+#caja2{
+    /* flex-grow: 2; */
+    align-self: flex-end;
+}

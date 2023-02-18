@@ -38,10 +38,6 @@ table td:nth-child(3){
     color: brown;
 } */
 
-/* no me salio este */
-/* tr#fila4:hover{
-    color: green;
-} */
 
 tbody > tr:nth-child(odd){
     background-color: gray;
