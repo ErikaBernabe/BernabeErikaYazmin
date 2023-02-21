@@ -1,0 +1,51 @@
+/* GRID */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#contenedor{
+    display: grid;
+    height:100vh;
+    width: 100vw;
+    background-color: aqua;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    justify-content: center;
+    /* justify-content: start; */
+    /* justify-content: end; */
+    align-content: center;
+    /* justify-items: center; */
+    /* align-items: center; */
+    justify-items: center;
+    align-items: center;
+
+    /* para el contenedido del cuadro el texto */
+     /* grid-auto-flow: column;     */
+
+    
+
+
+
+}
+
+.caja{
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+
+}
+#caja1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: start;
+}
+
+#caja2{
+   
+    /* justify-self: end; */
+    align-self: end;
+
+}
