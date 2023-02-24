@@ -6,7 +6,7 @@ Para declarar propiedades personalizadas (variables) usamos un nombre que comien
 
 Ejemplos de variables:
 1. --main-color: red; 
-2. --color-oscuro: black y se accede como , background: var(--color-oscuro);
+2. --color-oscuro: black;
 
 Las variables se accede por medio de **var**.
 
@@ -15,7 +15,28 @@ Ejemplos de acceso a las variables:
 2. background: var(--color-oscuro);
 
 
-Las variables se deben colocar en la parte superior del documento CSS, adentro de **:root{}**
+Las variables se deben colocar adentro de **:root{}** en la parte superior del documento CSS, la sintaxis **:root** en CSS se refiere al selector de la raíz del documento, que se utiliza para definir propiedades globales en la hoja de estilos que se aplicarán a todo el documento.
+
+Al definir variables personalizadas dentro del selector **:root**, se asegura que estén disponibles globalmente en toda la hoja de estilos y se pueden usar en cualquier parte del documento.
+
+Ejemplo:
+
+:root{
+    --main-color: red;
+    --color-oscuro: black;
+}
+
+h1{
+    color: var(--main-color: red);
+}
+
+p{
+    color:var(--color-oscuro: black);
+}
+
+h2{
+    color:var(--main-color: red);
+}
  
  
  
