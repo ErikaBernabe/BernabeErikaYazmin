@@ -1,14 +1,28 @@
+:root{
+    --center:center;
+    --color-primario:grey;
+    --color-caja:bisque;
+    --font-text: monospace;
+    --color-title:red;
+    
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+.title{
+    font-family: var(--font-text);
+    color: var(--color-title);
+   
+}
+
 
 #contenedor{
     width: 100vw;
     height: 100vh;
-    background-color: blue;
     display: grid;
     
     grid-template-columns:50% 50%;
@@ -17,8 +31,8 @@
                          'barralateral contenido'
                          'piepagina contenido';
 
-    justify-content: center;
-    align-content: center;
+    justify-content: var(--center);
+    align-content: var(--center);
 
     justify-items: stretch;
     align-items: stretch;
@@ -27,9 +41,9 @@
 
 .caja{
   
-    background-color: greenyellow;
-    text-align: center;
-    border: 2px solid black;
+    background-color:var(--color-caja);
+    text-align: var(--center);
+    border: 5px solid var(--color-primario);
 }
 
 #encabezado{grid-area: encabezado;}
