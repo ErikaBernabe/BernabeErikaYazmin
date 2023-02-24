@@ -2,6 +2,8 @@
 
 En CSS, las propiedades personalizadas (también conocidas como variables) contienen valores específicos que se pueden volver a utilizar en un documento. Se establecen mediante la notación de propiedades personalizadas.Por ejemplo, el mismo color se puede utilizar en cientos de lugares diferentes, lo cual requiere buscar y reemplazar globalmente si necesitamos cambiar ese color. Las variables CSS permiten que un valor se almacene en un lugar y luego se haga referencia en varios lugares.
 
+Para declarar propiedades personalizadas (variables) usamos un nombre que comienze con dos guiones (--), y un valor que puede ser cualquier valor válido de CSS. 
+
 Ejemplos de variables:
 1. --main-color: red; 
 2. --color-oscuro: black y se accede como , background: var(--color-oscuro);
