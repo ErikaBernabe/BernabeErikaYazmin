@@ -1,0 +1,17 @@
+ul{
+    list-style-type: none;
+}
+
+.opcion > ul{
+    display: none;
+}
+
+/* menucon hover */
+/* .opcion:hover > ul{
+    display: block;
+} */
+
+/* menu con click y con este se debio poner una etiqueta <a> y se tuvo que poner un id */
+.opcion:target > ul{
+    display: block;
+}

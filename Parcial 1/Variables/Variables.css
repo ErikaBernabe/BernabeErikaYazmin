@@ -27,12 +27,11 @@ h1{
  img{
     height: 250px;
     width: 250px;
+    /* padding: 5px; */
+    margin: 5px;
    
     
 }
-
-
-
 
 div#cont{
     font-family: Arial, Helvetica, sans-serif;
@@ -68,5 +67,8 @@ div#cont{
 
 }
 
-#columnaFotoBarraLat{grid-area: columnalat;}
+#columnaFotoBarraLat{
+    grid-area: columnalat;
+    margin: 5px;
+}
 #contenido{grid-area: contenido;}
