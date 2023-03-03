@@ -32,10 +32,10 @@ ul > li:target > ul {
 .opcion > a {
     display: block;
     padding: 5px 5px 10px 20px;
-    background-color: rgb(167, 220, 255);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(145, 220, 255);
-    border-bottom: 1px solid rgb(100, 162, 220);
+    background-color: rgb(233, 235, 142);
+    color: rgb(235, 159, 159);
+    border: 1px solid rgb(202, 233, 248);
+    border-bottom: 1px solid rgb(114, 122, 240);
     text-decoration: none;
     font-weight: bold;
 }
@@ -43,8 +43,8 @@ ul > li:target > ul {
 .subOpcion { 
     display: block;
     padding: 5px 5px 10px 40px;
-    background-color: rgb(255, 239, 167);
-    color: rgb(212, 177, 61);
-    border: 1px solid rgb(243, 224, 117);
-    border-bottom: 1px solid rgb(220, 198, 100);
+    background-color: rgb(162, 247, 113);
+    color: rgb(31, 30, 26);
+    border: 1px solid rgb(129, 241, 101);
+    border-bottom: 1px solid rgb(189, 184, 163);
 }
