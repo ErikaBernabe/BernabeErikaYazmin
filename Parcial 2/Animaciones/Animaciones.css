@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+#contenedor{
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+    display: grid;
+    
+    grid-template-columns:50% 50%;
+    grid-template-rows: 20% 40% 40%;
+    grid-template-areas: 'encabezado encabezado'
+                         'barralateral contenido'
+                         'piepagina contenido';
+
+    justify-content: center;
+    align-content: center;
+
+    justify-items: stretch;
+    align-items: stretch;
+
+}
+
+.caja{
+  
+    background-color: greenyellow;
+    text-align: center;
+    border: 2px solid black;
+}
+
+#encabezado{grid-area: encabezado;}
+#barralateral{grid-area: barralateral;}
+#contenido{grid-area: contenido;}
+#piepagina{grid-area: piepagina;}
+
+
+
+/* suavizar o agregar efectos al cambio de una propiedad */
+
+.caja:hover{
+    background-color: pink;
+    transition-property: background-color ;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    
+}
+
+
+/* Funciones definidas en css para transformar el elemento seleccionado */
+#piepagina:active{
+    /* transform: skew(30deg,30deg); */
+    transform: scale(1.5);
+}
+#barralateral:active{
+    /* transform: scale(1.5); */
+    transform: skew(40deg,40deg);
+}
+
+/* Afectos de animacion en los elementos seleccionados */
+#contenido{
+    animation: cambiarAncho 4s linear 0s 4 normal forwards  running;
+}
+
+@keyframes cambiarAncho{
+    from{
+        width: 300px;
+    }
+    to{
+        width: 500px;
+    }
+}
+
+
+
