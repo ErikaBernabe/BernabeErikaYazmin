@@ -32,6 +32,10 @@
     border: 2px solid black;
 }
 
+.cajaAmarilla{
+    background-color: yellow;
+}
+
 #encabezado{grid-area: encabezado;}
 #barralateral{grid-area: barralateral;}
 #contenido{grid-area: contenido;}
