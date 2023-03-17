@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* sin esto no se va a ver en toda la pagina, no se veria el contenido */
+html, body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+}
+
+.menu{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: aqua;
+    
+}
+
+.contenido{
+    position: relative;
+    margin-left: 200px;
+    height: 100%;
+    background-color: blueviolet;
+}
+
+.menuEscondido{
+    width: 0;
+
+}
+
+.contenidoMenuEscondido{
+    margin-left: 0;
+}
+
+
+/* ACORDEON */
+
+ul {
+    list-style: none;
+    width: 200px;
+    height: 500px;
+}
+
+ul > li > ul {
+    display: none;
+}
+
+ul > li a:hover {
+    background-color: rgb(190, 229, 255);
+}
+
+ul > li:hover > ul {
+    display: block;
+    height: 100%;
+}
+
+ul > li:target > ul {
+    display: block;
+    height: 100%;
+}       
+
+
+.opcion > a {
+    display: block;
+    padding: 5px 5px 10px 20px;
+    background-color: rgb(233, 235, 142);
+    color: rgb(235, 159, 159);
+    border: 1px solid rgb(202, 233, 248);
+    border-bottom: 1px solid rgb(114, 122, 240);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.subOpcion { 
+    display: block;
+    padding: 5px 5px 10px 40px;
+    background-color: rgb(162, 247, 113);
+    color: rgb(31, 30, 26);
+    border: 1px solid rgb(129, 241, 101);
+    border-bottom: 1px solid rgb(189, 184, 163);
+}
+
+/* TEMA OSCURO */
