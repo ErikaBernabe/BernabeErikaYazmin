@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./HorarioJson.css">
+</head>
+<body>
+    <div id="contenedor"></div>
+    <script>
+        window.onload=function(){
+            encabezados=["Hora", "Lunes", "Martes", "Miercoles","Jueves", "Viernes"];
+            datos=[{Hora:"7-8",
+                    Lunes:"Programacion Web",
+                    Martes:"Programacion Web",
+                    Miercoles:"Programacion Web",
+                    Jueves:"Programacion Web",
+                    Viernes:"Programacion Web"
+
+            },{
+                Hora:"8-9",
+                    Lunes:"Libre",
+                    Martes:"Sistemas Operativos",
+                    Miercoles:"Libre",
+                    Jueves:"Sistemas Operativos",
+                    Viernes:"Libre"
+            },{
+                Hora:"9-10",
+                    Lunes:"Libre",
+                    Martes:"Sistemas Operativos",
+                    Miercoles:"Libre",
+                    Jueves:"Sistemas Operativos",
+                    Viernes:"Libre"
+            },{
+                Hora:"10-11",
+                    Lunes:"Fundamentos de Ingenieria de Software",
+                    Martes:"Estructura de Datos",
+                    Miercoles:"Fundamentos de Ingenieria de Software",
+                    Jueves:"Estructura de Datos",
+                    Viernes:"Libre"
+            },{
+                Hora:"11-12",
+                    Lunes:"Fundamentos de Ingenieria de Software",
+                    Martes:"Estructura de Datos",
+                    Miercoles:"Fundamentos de Ingenieria de Software",
+                    Jueves:"Estructura de Datos",
+                    Viernes:"Estructura de Datos"
+                
+            },{
+                Hora:"12-1",
+                    Lunes:"Principios Electricos",
+                    Martes:"Taller de Investigacion II",
+                    Miercoles:"Principios Electricos",
+                    Jueves:"Taller de Investigacion II",
+                    Viernes:"Principios Electricos"
+                
+            },{
+                Hora:"1-2",
+                    Lunes:"Principios Electricos",
+                    Martes:"Taller de Investigacion II",
+                    Miercoles:"Graficacion",
+                    Jueves:"Taller de Investigacion II",
+                    Viernes:"Libre"
+                
+            }]
+
+
+            console.table(datos);
+
+           let table=document.createElement('table');
+           let thead=document.createElement('thead');
+           let tr=document.createElement('tr');
+
+         encabezados.forEach(function(item) {
+         let th=document.createElement('th');
+         th.innerText=item;
+          tr.appendChild(th);
+           });
+
+           thead.appendChild(tr);
+           let tbody=document.createElement('thead');
+           datos.forEach(function(item){
+            let tr=document.createElement("tr");
+
+                let td1=document.createElement("td");
+                td1.innerText=item.Hora
+
+                let td2=document.createElement("td");
+                td2.innerText=item.Lunes
+
+                let td3=document.createElement("td");
+                td3.innerText=item.Martes
+                
+                let td4=document.createElement("td");
+                td4.innerText=item.Miercoles
+
+                let td5=document.createElement("td");
+                td5.innerText=item.Jueves
+
+                let td6=document.createElement("td");
+                td6.innerText=item.Viernes
+
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tr.appendChild(td3)
+                tr.appendChild(td4)
+                tr.appendChild(td5)
+                tr.appendChild(td6)
+                
+                tbody.appendChild(tr)
+           })
+
+           table.appendChild(thead);
+            table.appendChild(tbody)
+
+            document.getElementById('contenedor').appendChild(table);
+
+        }
+    </script>
+</body>
+</html>
