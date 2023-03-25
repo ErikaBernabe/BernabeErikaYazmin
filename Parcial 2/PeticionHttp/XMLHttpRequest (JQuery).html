@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="btn1">Peticion HMLHttp</button>
+    <button id="btn2">Peticion jQuery Ajax</button>
+    <button id="btn3">Peticion JQuery Get</button>
+    <button id="btn4">Peticion JQuery GetJSON</button>
+    <div id="resultado">
+
+    </div>
+    <script>
+
+         //Con HMLHttp / Vanilla Js
+        window.onload=function(){
+            document.getElementById("btn1").addEventListener("click",function(){
+                console.log("Click en boton");
+
+                let solicitud=new XMLHttpRequest();
+                solicitud.responseType='json';
+                solicitud.onload=function(){
+                    console.log(solicitud.response);
+                    document.getElementById("resultado").innerText=solicitud.response.value;
+                }
+                solicitud.open("GET","https://api.chucknorris.io/jokes/random",true);
+                solicitud.send();
+            })
+        }
+
+       
+
+        $(document).ready(function(){
+             //Con jQuery Ajax / JQuery
+            $("#btn2").click(function(){
+
+                $.ajax({
+                    url:"https://api.chucknorris.io/jokes/random"
+                }).done(function(respuesta){
+                    console.log(respuesta);
+                    // document.getElementById("resultado").innerText=respuesta.value;
+                    $("#resultado").text(respuesta.value)
+                })
+
+            })
+        })
+
+
+        
+            
+        $(document).ready(function(){
+
+            //Get
+            $("#btn3").click(function(){
+                $.get("https://api.chucknorris.io/jokes/random",function(respuesta){
+                    console.log(respuesta);
+                    $("#resultado").text(respuesta.value);
+                },"json")
+
+               
+            })
+
+                 //GetJson
+             $("#btn4").click(function(){
+                $.getJSON("https://api.chucknorris.io/jokes/random",function(respuesta){
+                    $("#resultado").text(respuesta.value);
+                })
+               
+
+            })
+        })
+
+
+
+
+    </script>
+</body>
+</html>

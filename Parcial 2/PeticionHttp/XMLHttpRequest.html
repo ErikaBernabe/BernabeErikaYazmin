@@ -12,6 +12,7 @@
 
     </div>
     <script>
+         //Con HMLHttp / Vanilla Js
         window.onload=function(){
             document.getElementById("btn").addEventListener("click",function(){
                 console.log("Click en boton");
@@ -22,7 +23,7 @@
                     console.log(solicitud.response);
                     document.getElementById("resultado").innerText=solicitud.response.value;
                 }
-                solicitud.open("GET","https://pokeapi.co/api/v2/pokemon/pikachu",true);
+                solicitud.open("GET","https://api.chucknorris.io/jokes/random",true);
                 solicitud.send();
             })
         }
