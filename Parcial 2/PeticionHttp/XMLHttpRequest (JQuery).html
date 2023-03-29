@@ -39,16 +39,25 @@
             });
 
             // Fetch
-            document.getElementById("btn5").addEventListener("click",function(){
-          
+             document.getElementById("btn5").addEventListener("click", function () {
                 fetch("https://api.chucknorris.io/jokes/random")
-                .then(respuesta => respuesta.json())
-                .then( function (datoJson){ console.log(datoJson);
-                    document.getElementById("resultado").innerText=solicitud.response.value;
+                    .then(respuesta => respuesta.json())
+                    .then(datoJson => { 
+                        document.getElementById("resultado").innerText = datoJson.value
+                        console.log(datoJson) })
 
-                })
+
+            });
+            // document.getElementById("btn5").addEventListener("click",function(){
+          
+            //     fetch("https://api.chucknorris.io/jokes/random")
+            //     .then(respuesta => respuesta.json())
+            //     .then( function (datoJson){ console.log(datoJson);
+            //         document.getElementById("resultado").innerText=solicitud.response.value;
+
+            //     })
                 
-            })
+            // });
 
             //Axios
             document.getElementById("btn6").addEventListener("click",function(){
@@ -61,7 +70,7 @@
                         console.log(response.data.value)
                      });
 
-            })
+            });
         }
 
        
