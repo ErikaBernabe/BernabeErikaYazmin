@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
     <button id="btn1">Peticion HMLHttp</button>
     <button id="btn2">Peticion jQuery Ajax</button>
     <button id="btn3">Peticion JQuery Get</button>
     <button id="btn4">Peticion JQuery GetJSON</button>
+         
+    <!-- Exposicion son 1o pnts -->
+    <button id="btn5">Peticion Fetch</button>
+    <button id="btn6">Axios</button>
     <div id="resultado">
 
     </div>
@@ -30,6 +36,31 @@
                 }
                 solicitud.open("GET","https://api.chucknorris.io/jokes/random",true);
                 solicitud.send();
+            });
+
+            // Fetch
+            document.getElementById("btn5").addEventListener("click",function(){
+          
+                fetch("https://api.chucknorris.io/jokes/random")
+                .then(respuesta => respuesta.json())
+                .then( function (datoJson){ console.log(datoJson);
+                    document.getElementById("resultado").innerText=solicitud.response.value;
+
+                })
+                
+            })
+
+            //Axios
+            document.getElementById("btn6").addEventListener("click",function(){
+                axios({
+                        method: 'get',
+                        url: "https://api.chucknorris.io/jokes/random",
+                         
+                    })
+                     .then(function (response) {
+                        console.log(response.data.value)
+                     });
+
             })
         }
 
@@ -70,8 +101,7 @@
                 $.getJSON("https://api.chucknorris.io/jokes/random",function(respuesta){
                     $("#resultado").text(respuesta.value);
                 })
-               
-
+             
             })
         })
 
