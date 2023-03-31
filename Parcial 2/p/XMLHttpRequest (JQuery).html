@@ -36,51 +36,42 @@
                 solicitud.responseType='json';
                 solicitud.onload=function(){
                     console.log(solicitud.response);
-                    document.getElementById("resultado").innerText=solicitud.response.value;
+                    document.getElementById("resultado").innerText=solicitud.response.fact;
                 }
-                solicitud.open("GET","https://api.chucknorris.io/jokes/random",true);
+                solicitud.open("GET","https://catfact.ninja/fact",true);
                 solicitud.send();
             });
 
             // Fetch
              document.getElementById("btn5").addEventListener("click", function () {
-                fetch("https://api.chucknorris.io/jokes/random")
+                fetch("https://catfact.ninja/fact")
                     .then(respuesta => respuesta.json())
                     .then(datoJson => { 
-                        document.getElementById("resultado").innerText = datoJson.value
+                        document.getElementById("resultado").innerText = datoJson.fact
                         console.log(datoJson) })
 
 
             });
-            // document.getElementById("btn5").addEventListener("click",function(){
-          
-            //     fetch("https://api.chucknorris.io/jokes/random")
-            //     .then(respuesta => respuesta.json())
-            //     .then( function (datoJson){ console.log(datoJson);
-            //         document.getElementById("resultado").innerText=solicitud.response.value;
-
-            //     })
-                
-            // });
+            
 
             //Axios
             document.getElementById("btn7").addEventListener("click",function(){
                 axios({
                         method: 'get',
-                        url: "https://api.chucknorris.io/jokes/random",
+                        url: "https://catfact.ninja/fact",
                          
                     })
                      .then(function (response) {
-                        console.log(response.data.value)
+                        console.log(response.data.fact)
                      });
 
             });
 
             //async await
              document.getElementById("btn6").addEventListener("click",async function(){
-               let respuesta=await fetch("https://api.chucknorris.io/jokes/random")
+               let respuesta=await fetch("https://catfact.ninja/fact")
                     let datoJson =await respuesta.json();
-                    document.getElementById("resultado").innerText=datoJson.value;
+                    document.getElementById("resultado").innerText=datoJson.fact;
 
             });
         }
@@ -92,11 +83,11 @@
             $("#btn2").click(function(){
 
                 $.ajax({
-                    url:"https://api.chucknorris.io/jokes/random"
+                    url:"https://catfact.ninja/fact"
                 }).done(function(respuesta){
                     console.log(respuesta);
                     // document.getElementById("resultado").innerText=respuesta.value;
-                    $("#resultado").text(respuesta.value)
+                    $("#resultado").text(respuesta.fact)
                 })
 
             })
@@ -109,9 +100,9 @@
 
             //Get
             $("#btn3").click(function(){
-                $.get("https://api.chucknorris.io/jokes/random",function(respuesta){
+                $.get("https://catfact.ninja/fact",function(respuesta){
                     console.log(respuesta);
-                    $("#resultado").text(respuesta.value);
+                    $("#resultado").text(respuesta.fact);
                 },"json")
 
                
@@ -119,8 +110,8 @@
 
                  //GetJson
              $("#btn4").click(function(){
-                $.getJSON("https://api.chucknorris.io/jokes/random",function(respuesta){
-                    $("#resultado").text(respuesta.value);
+                $.getJSON("https://catfact.ninja/fact",function(respuesta){
+                    $("#resultado").text(respuesta.fact);
                 })
              
             })
