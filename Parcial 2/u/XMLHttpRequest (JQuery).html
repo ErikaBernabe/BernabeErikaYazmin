@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- para que se pueda usar JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- para que se pueda usar Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <button id="btn1">Peticion HMLHttp</button>
+    <button id="btn2">Peticion jQuery Ajax</button>
+    <button id="btn3">Peticion JQuery Get</button>
+    <button id="btn4">Peticion JQuery GetJSON</button>
+         
+    <!-- Exposicion son 1o pnts -->
+    <button id="btn5">Peticion Fetch</button>
+    <button id="btn6">Peticion Fetch Async Await</button>
+    <button id="btn7">Peticion Axios</button>
+
+    <div id="resultado">
+
+    </div>
+    <script>
+
+         //Con HMLHttp / Vanilla Js
+        window.onload=function(){
+            document.getElementById("btn1").addEventListener("click",function(){
+                console.log("Click en boton");
+
+                let solicitud=new XMLHttpRequest();
+                solicitud.responseType='json';
+                solicitud.onload=function(){
+                    console.log(solicitud.response);
+                    document.getElementById("resultado").innerText=solicitud.response.results[0].name.title+''+solicitud.response.results[0].name.first+''+solicitud.response.results[0].name.last
+;
+                }
+                solicitud.open("GET","https://randomuser.me/api/",true);
+                solicitud.send();
+            });
+
+            // Fetch
+             document.getElementById("btn5").addEventListener("click", function () {
+                fetch("https://randomuser.me/api/")
+                    .then(respuesta => respuesta.json())
+                    .then(datoJson => { 
+                        document.getElementById("resultado").innerText = datoJson.results[0].name.title+''+datoJson.results[0].name.first+''+datoJson.results[0].name.last
+                        console.log(datoJson) })
+
+
+            });
+            
+
+            //Axios
+            document.getElementById("btn7").addEventListener("click",function(){
+                axios({
+                        method: 'get',
+                        url: "https://randomuser.me/api/",
+                         
+                    })
+                     .then(function (response) {
+                        console.log(response.data.results[0].name.title+''+response.data.results[0].name.first+''+response.data.results[0].name.last)
+                     });
+
+            });
+
+            //async await
+             document.getElementById("btn6").addEventListener("click",async function(){
+               let respuesta=await fetch("https://randomuser.me/api/")
+                    let datoJson =await respuesta.json();
+                    document.getElementById("resultado").innerText=datoJson.results[0].name.title+''+datoJson.results[0].name.first+''+datoJson.results[0].name.last;
+
+            });
+        }
+
+       
+         //Con jQuery Ajax / JQuery
+        $(document).ready(function(){
+             //Con jQuery Ajax / JQuery
+            $("#btn2").click(function(){
+
+                $.ajax({
+                    url:"https://randomuser.me/api/"
+                }).done(function(respuesta){
+                    console.log(respuesta);
+                    // document.getElementById("resultado").innerText=respuesta.value;
+                    $("#resultado").text(respuesta.results[0].name.title+''+respuesta.results[0].name.first+''+respuesta.results[0].name.last)
+                })
+
+            })
+        })
+
+
+
+            
+        $(document).ready(function(){
+
+            //Get
+            $("#btn3").click(function(){
+                $.get("https://randomuser.me/api/",function(respuesta){
+                    console.log(respuesta);
+                    $("#resultado").text(respuesta.results[0].name.title+''+respuesta.results[0].name.first+''+respuesta.results[0].name.last);
+                },"json")
+
+               
+            })
+
+                 //GetJson
+             $("#btn4").click(function(){
+                $.getJSON("https://randomuser.me/api/",function(respuesta){
+                    $("#resultado").text(respuesta.results[0].name.title+''+respuesta.results[0].name.first+''+respuesta.results[0].name.last);
+                })
+             
+            })
+        })
+
+
+
+
+    </script>
+</body>
+</html>
