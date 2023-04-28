@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticiones Http con Parametros</title>
+</head>
+<body>
+    <select  id="categorias"></select>
+
+        <button id="btn5">PeticionFetch</button>
+
+        <div id="resultado">
+
+        </div>
+
+        <script>
+            // peticiones con parametros
+            window.onload = function(){
+                // utilizando Fetch
+                fetch("https://api.chucknorris.io/jokes/categories")
+                    .then(respuesta => respuesta.json())
+                        .then(function(datoJson){console.log(datoJson);
+                            datoJson.forEach(elemento => {
+                                console.log(elemento);
+
+                                let opcion = document.createElement('option')
+                                opcion.value = elemento
+                                opcion.text = elemento
+                                document.getElementById('categorias').appendChild(opcion);
+                            })})
+
+            }
+
+            document.getElementById("btn5").addEventListener("click", function(){
+                let CategoriaSeleccionada =document.getElementById('categorias').value;
+                let direccionPeticion = "https://api.chucknorris.io/jokes/random?category="+CategoriaSeleccionada;
+                fetch(direccionPeticion)
+                    .then(respuesta => respuesta.json())
+                        .then(function(datoJson){console.log(datoJson);
+                            document.getElementById("resultado").innerText=datoJson.value;
+                        })
+            })
+
+        </script>
+</body>
+</html>
