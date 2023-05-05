@@ -10,11 +10,15 @@ app.get('/', (req, res)=>{
 })
 
 app.listen(8082, (req, res)=>{
-    console.log('Servidor express escuchando en pto 8082')
 })
+    console.log('Servidor express escuchando en pto 8082')
+
 
 
 // $npm init -y
+
+// npm install express creo que esto se intala primero
+
 // $npm i express
 //       --save-dex
 
