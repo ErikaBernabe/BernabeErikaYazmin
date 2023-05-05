@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- SIMULAR UN CRUD -->
+    <!-- usar peticion fetch  o con axios-->
+    <form action="">
+        <label for="titulo">Titulo</label>
+        <input type="text" id="titulo"><br>
+
+        <label for="cuerpo">descripcion</label>
+        <input type="text" id="cuerpo"><br>
+
+        <label for="usuarioId">ID</label>
+        <input type="text" id="usuarioId"><br>
+
+        <button type="button" id="btnEnviar">Enviar</button><br>
+       
+
+
+    </form>
+
+    <script>
+        window.onload=function(){
+
+            document.getElementById("btnEnviar").addEventListener("click",()=>{
+                console.log("click en boton enviar")
+
+                let objeto={
+                    title:document.getElementById('titulo').value,
+                    body:document.getElementById('cuerpo').value,
+                    userId:document.getElementById('usuarioId').value
+                }
+                let opcionFetch ={
+                    method:'POST',
+                    body:JSON.stringify(objeto),
+                    // Headers:{'Content-type': 'application/json; charset-UTP-8',},
+                    headers: {'Content-type': 'application/json; charset-UTP-8',},
+                    
+                }
+
+                // let vtitulo=document.getElementById('titulo').value;
+                // let vcuerpo=document.getElementById('cuerpo').value;
+                // let vusuarioId=document.getElementById('usuarioId').value;
+
+                // fetch('',{
+                //     method:'POST',
+                //     body:JSON.stringify({
+                //         title:vtitulo,
+                //         body:vcuerpo,
+                //         userId:vusuarioId,
+
+                //     })
+                
+               
+                let respuesta = await fetch('https://', opcionFetch); //usando el async await
+                let json = await respuesta.json();
+                swal.fire('Any fool can use a computer') //aqui va la funcion para poner un sweetalert
+                    document.getElementById("ID").value=json.id
+
+             
+
+
+
+            })
+
+        }
+
+        // usar el sweetalert2
+        // instalar con $npm install sweetalert2
+        // o solo agregarla a una etiqueta de script
+        // http:
+    </script>
+    
+</body>
+</html>
