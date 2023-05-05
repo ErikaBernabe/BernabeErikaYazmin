@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsonPlaceholder</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <form action="">
+        <label for="titulo">Titulo</label>
+        <input type="text" id="titulo"> <br>
+
+        <label for="cuerpo">Cuerpo</label>
+        <input type="text" id="cuerpo"> <br>
+
+        <label for="usuarioid">UsuarioID</label>
+        <input type="text" id="usuarioid"> <br>
+
+
+        <label for="id">ID</label>
+        <input type="text" id="id" disabled> <br>
+
+
+
+        <button id="btnEnviar" type="button">Enviar</button>
+        
+        <!-- SIMULAR UN CRUD -->
+        <script>
+             
+   
+            document.getElementById("btnEnviar").addEventListener("click", ()=>{
+                
+                let registro = {
+                    title  : document.getElementById("titulo").value,
+                    body   : document.getElementById("cuerpo").value,
+                    userId : document.getElementById("usuarioid").value
+                }
+                // let titulo    = document.getElementById("titulo").value;
+                // let cuerpo    = document.getElementById("cuerpo").value;
+                // let usuarioid = document.getElementById("usuarioid").value;
+
+                let opcionesFetch = {
+                    method: 'POST',
+                    body: JSON.stringify(registro),
+                    headers: {'Content-type': 'application/json; charset=UTF-8',},
+                }
+                
+
+                fetch('https://jsonplaceholder.typicode.com/posts', opcionesFetch) 
+                //     method: 'POST',
+                //     body: JSON.stringify({
+                //     title: 'foo',
+                //     body: 'bar',
+                //     userId: 1,
+                // }),
+                //     headers: {'Content-type': 'application/json; charset=UTF-8',},
+                // })
+                    .then((response) => response.json())
+                    .then(function (json){
+                        Swal.fire('Any fool can use a computer');
+                        document.getElementById("id").value = json})
+            })
+        </script>
+
+        
+    </form>
+   
+</body>
+</html>
+
+
+<!-- usar el sweetalert2
+ instalar con $npm install sweetalert2
+ o solo agregarla a una etiqueta de script
+ http: -->
