@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+    <form >
+        
+        <center><h1>CONSULTA PELICULAS</h1></center>
+        <div class="form-group">
+            <label for="idUsuario">ID</label>
+            <input  id="idUsuario" type="text"><br>
+        </div>
+        <div class="form-group">
+            <label for="nombreP">Nombre</label>
+             <input  id="nombreP" type="text"><br>
+
+        </div>
+        <div class="form-group">
+            <label for="generoP">Genero</label>
+            <input  id="generoP" type="text"><br>
+        </div>
+        <div class="form-group">
+            <label for="FEstreno">Fecha de Estreno</label>
+            <input  id="FEstreno" type="text"><br>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="duracionT">Duración</label>
+            <input  id="duracionT" type="text"><br>
+        </div>
+       
+
+        <button id="btnConsulta" type="button">Consultar</button>
+        <button id="btnBorrar" type="button">Borrar</button>
+
+
+        <div id="mensaje" class="error-message"></div>
+   
+
+    </form>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        
+
+        //CONSULTA
+        document.getElementById("btnConsulta").addEventListener("click", function(){
+
+        
+        let id = prompt("Teclee el ID del género musical");
+     // fetch('http://localhost:8082/cliente/'+id)
+     fetch('http://localhost:8082/cliente?Id='+id)
+         .then(respuesta => respuesta.json())
+          .then(Objeto => {
+
+            // if(Objeto.estado==1){
+
+                    // console.log(Objeto);
+
+                // document.getElementById("nombreP").value=Objeto[0].Nombre;
+                // document.getElementById("idUsuario").value=Objeto[0].Id;
+                // document.getElementById("generoP").value=Objeto[0].Genero;
+                // document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
+                // document.getElementById("duracionT").value=Objeto[0].Duracion;
+                
+                // // Borrar el mensaje de error del div
+                // document.getElementById("mensaje").innerHTML = '';
+
+                // }else{
+                //     alert(Objeto.resultado)
+                // }
+
+
+            console.log(Objeto);
+            if (Objeto.mensaje) {
+                // Mostrar mensaje de error en el div
+                document.getElementById("mensaje").innerHTML = Objeto.mensaje;
+                // Mostrar alerta de SweetAlert2
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Error',
+                    text: Objeto.mensaje
+                });
+            } else {
+                // Mostrar los datos del género en los inputs
+                
+                document.getElementById("nombreP").value=Objeto[0].Nombre;
+                document.getElementById("idUsuario").value=Objeto[0].Id;
+                document.getElementById("generoP").value=Objeto[0].Genero;
+                document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
+                document.getElementById("duracionT").value=Objeto[0].Duracion;
+                
+                // Borrar el mensaje de error del div
+                // document.getElementById("mensaje").innerHTML = '';
+            }
+       });
+    });
+
+// 7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+    // BORRAR
+      document.getElementById("btnBorrar").addEventListener("click", function(){
+          let id = document.getElementById("idUsuario").value;
+           // fetch('http://localhost:8082/cliente/'+id)
+         fetch('http://localhost:8082/cliente/'+id,{method:"DELETE"})
+         .then(respuesta => respuesta.json())
+        .then(Objeto => {
+
+    
+            if (Objeto.estado == 1) {
+           
+             alert(Objeto.resultado);
+             document.getElementById("nombreP").value='';
+            document.getElementById("idUsuario").value='';
+            document.getElementById("generoP").value='';
+            document.getElementById("FEstreno").value='';
+            document.getElementById("duracionT").value='';
+      
+        
+         } else {
+     
+        
+       alert(Objeto.resultado);
+        
+       
+      }
+   });
+});
+
+
+
+
+
+
+
+
+    
+    </script>
+
+    <!-- intalar el npm install cors -->
+</body>
+</html>

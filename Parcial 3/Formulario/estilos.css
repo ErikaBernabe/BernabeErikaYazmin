@@ -1,0 +1,78 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+} */
+ /* Estilos generales */
+ body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    color: #fa7272;
+    margin: 0;
+    padding: 0;
+    background-color: #e0a9a9;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+h1 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+label {
+    /* display: block; */
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-shadow: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+button[type="button"] {
+    padding: 10px;
+    font-size: 19px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: red;
+    border: black;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="button"]:hover {
+    background-color: #660fb8;
+    border: #fff;
+    /* font-size: 25px;
+    padding: 20; */
+    
+}
+/* Estilos específicos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-size: 18px;
+}
+.form-group input[type="text"] {
+    font-size: 18px;
+}
+.error-message {
+    color: #320c5e;
+    font-size: 20px;
+    margin-top: 15px;
+    
+}
