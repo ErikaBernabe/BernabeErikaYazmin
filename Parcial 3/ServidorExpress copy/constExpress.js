@@ -93,6 +93,43 @@ app.delete('/cliente/:Id', (req, res)=>{
   }
 })
 
+//ALTA
+app.post('/cliente', (req, res)=>{
+   
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password : '',
+        database: 'peliculas'
+
+    });
+   
+    let sentenciasql="insert into pelicula values("+req.body.Id+","+
+                                                "'"+req.body.Nombre+"',"+
+                                                "'"+req.body.Genero+"',"+
+                                                "'"+req.body.FechaEstreno+"',"+
+                                                "'"+req.body.Duracion+"'"+")";
+
+     console.log(sentenciasql);
+
+     connection.connect();                                           
+
+    connection.query(sentenciasql,function(error, results,fields){
+
+     if(error){
+         res.json(error);
+
+     }else{
+       console.log(results);
+       res.json(results);
+    }
+
+    });
+    connection.end();
+
+  
+})
+
 
 
 
