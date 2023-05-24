@@ -41,7 +41,7 @@
 
         <button id="btnConsulta" type="button">Consultar</button>
         <button id="btnBorrar" type="button">Borrar</button>
-        <button id="btn Agregar" type="button">Agregar</button>
+        <button id="btnAgregar" type="button">Agregar</button>
 
 
         <div id="mensaje" class="error-message"></div>
@@ -81,25 +81,6 @@
                     alert(Objeto.resultado)
                 }
 
-
-            // console.log(Objeto);
-            // if (Objeto.mensaje) {
-            //     // Mostrar mensaje de error en el div
-            //     document.getElementById("mensaje").innerHTML = Objeto.mensaje;
-            //     // Mostrar alerta de SweetAlert2
-                
-            
-            //     // Mostrar los datos del género en los inputs
-                
-            //     document.getElementById("nombreP").value=Objeto[0].Nombre;
-            //     document.getElementById("idUsuario").value=Objeto[0].Id;
-            //     document.getElementById("generoP").value=Objeto[0].Genero;
-            //     document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
-            //     document.getElementById("duracionT").value=Objeto[0].Duracion;
-                
-            //     // Borrar el mensaje de error del div
-            //     // document.getElementById("mensaje").innerHTML = '';
-            // }
        });
     });
 
@@ -135,20 +116,60 @@
 
 // oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
-//ALTA
-document.getElementById("btnAgregar").addEventListener("click", function(){
+//ALTA-Agregar
+document.getElementById("btnAgregar").addEventListener("click", function() {
+            let Id = document.getElementById("idUsuario").value;
+            let Nombre = document.getElementById("nombreP").value;
+            let Genero = document.getElementById("generoP").value;
+            let FechaEstreno = document.getElementById("FEstreno").value;
+            let Duracion = document.getElementById("duracionT").value;
+           
+            const pelicula = {
+               
+                   Id:Id,
+                   Nombre: Nombre,
+                   Genero: Genero,
+                   FechaEstreno: FechaEstreno,
+                   Duracion: Duracion
+                
+            };
 
-    
-    let Id = document.getElementById("idUsuario").value;
-    let Nombre = document.getElementById("nombreP").value;
-    let Genero = document.getElementById("generoP").value;
-    let FechaEstreno = document.getElementById("FEstreno").value;
-    let Duracion = document.getElementById("duracionT").value;
+            // Realizar la solicitud POST al servidor
+            fetch('http://localhost:8082/pelicula', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pelicula)
+            })
+            .then(respuesta => respuesta.json())
+                .then(resultado => {
 
+                      // Mostrar el resultado de la operación en la consola
+                    // console.log(resultado);
+                    // if (Objeto.estado == 1) {
+                    //     alert(Objeto.resultado);
+                    //     // Limpiar los campos del formulario después de agregar la película
+                    //     document.getElementById("nombreP").value = '';
+                    //     document.getElementById("idUsuario").value = '';
+                    //     document.getElementById("generoP").value = '';
+                    //     document.getElementById("FEstreno").value = '';
+                    //     document.getElementById("duracionT").value = '';
+                       
+                    // } else {
+                    //     alert(Objeto.resultado);
+                    // }
+                        document.getElementById("nombreP").value = "";
+                        document.getElementById("idUsuario").value = "";
+                        document.getElementById("generoP").value = "";
+                        document.getElementById("FEstreno").value = "";
+                        document.getElementById("duracionT").value = "";
+                        
+                });
+                let mensaje = alert("Pelicula agregado exitosamente.");
+            document.getElementById("mensaje").innerHTML = "Pelicula agregado exitosamente.";
+        });       
 
-
-
-})
 
     </script>
 

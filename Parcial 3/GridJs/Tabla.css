@@ -1,0 +1,34 @@
+.gridjs {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 3px solid #ccc;
+  }
+
+  .gridjs th {
+    background-color: rgba(241, 57, 73, 0.986);
+    color: #000;
+    border-bottom: 5px solid #0f0f0f;
+    text-align: center;
+    padding: 6px;
+  }
+
+  .gridjs td {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .gridjs tr:nth-child(even) {
+    background-color: #5b970d;
+  }
+
+  tr > td:hover {
+    background-color:#be1c1c;
+    color: rgb(196, 216, 202);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* 
+table, th,td {
+    border: 4px solid black;
+    border-collapse: collapse;
+} */
