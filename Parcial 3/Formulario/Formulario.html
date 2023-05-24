@@ -33,7 +33,6 @@
         </div>
 
 
-
         <div class="form-group">
             <label for="duracionT">Duración</label>
             <input  id="duracionT" type="text"><br>
@@ -42,6 +41,7 @@
 
         <button id="btnConsulta" type="button">Consultar</button>
         <button id="btnBorrar" type="button">Borrar</button>
+        <button id="btn Agregar" type="button">Agregar</button>
 
 
         <div id="mensaje" class="error-message"></div>
@@ -60,50 +60,46 @@
         
         let id = prompt("Teclee el ID del género musical");
      // fetch('http://localhost:8082/cliente/'+id)
-     fetch('http://localhost:8082/cliente?Id='+id)
+     fetch('http://localhost:8082/pelicula/'+id)
          .then(respuesta => respuesta.json())
           .then(Objeto => {
 
-            // if(Objeto.estado==1){
+            if(Objeto.estado==1){
 
                     // console.log(Objeto);
 
-                // document.getElementById("nombreP").value=Objeto[0].Nombre;
-                // document.getElementById("idUsuario").value=Objeto[0].Id;
-                // document.getElementById("generoP").value=Objeto[0].Genero;
-                // document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
-                // document.getElementById("duracionT").value=Objeto[0].Duracion;
-                
-                // // Borrar el mensaje de error del div
-                // document.getElementById("mensaje").innerHTML = '';
-
-                // }else{
-                //     alert(Objeto.resultado)
-                // }
-
-
-            console.log(Objeto);
-            if (Objeto.mensaje) {
-                // Mostrar mensaje de error en el div
-                document.getElementById("mensaje").innerHTML = Objeto.mensaje;
-                // Mostrar alerta de SweetAlert2
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Error',
-                    text: Objeto.mensaje
-                });
-            } else {
-                // Mostrar los datos del género en los inputs
-                
-                document.getElementById("nombreP").value=Objeto[0].Nombre;
-                document.getElementById("idUsuario").value=Objeto[0].Id;
-                document.getElementById("generoP").value=Objeto[0].Genero;
-                document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
-                document.getElementById("duracionT").value=Objeto[0].Duracion;
+                document.getElementById("nombreP").value=Objeto.resultado.Nombre;
+                document.getElementById("idUsuario").value=Objeto.resultado.Id;
+                document.getElementById("generoP").value=Objeto.resultado.Genero;
+                document.getElementById("FEstreno").value=Objeto.resultado.FechaEstreno;
+                document.getElementById("duracionT").value=Objeto.resultado.Duracion;
                 
                 // Borrar el mensaje de error del div
-                // document.getElementById("mensaje").innerHTML = '';
-            }
+                document.getElementById("mensaje").innerHTML = '';
+
+                }else{
+                    alert(Objeto.resultado)
+                }
+
+
+            // console.log(Objeto);
+            // if (Objeto.mensaje) {
+            //     // Mostrar mensaje de error en el div
+            //     document.getElementById("mensaje").innerHTML = Objeto.mensaje;
+            //     // Mostrar alerta de SweetAlert2
+                
+            
+            //     // Mostrar los datos del género en los inputs
+                
+            //     document.getElementById("nombreP").value=Objeto[0].Nombre;
+            //     document.getElementById("idUsuario").value=Objeto[0].Id;
+            //     document.getElementById("generoP").value=Objeto[0].Genero;
+            //     document.getElementById("FEstreno").value=Objeto[0].FechaEstreno;
+            //     document.getElementById("duracionT").value=Objeto[0].Duracion;
+                
+            //     // Borrar el mensaje de error del div
+            //     // document.getElementById("mensaje").innerHTML = '';
+            // }
        });
     });
 
@@ -112,7 +108,7 @@
       document.getElementById("btnBorrar").addEventListener("click", function(){
           let id = document.getElementById("idUsuario").value;
            // fetch('http://localhost:8082/cliente/'+id)
-         fetch('http://localhost:8082/cliente/'+id,{method:"DELETE"})
+         fetch('http://localhost:8082/pelicula/'+id,{method:"DELETE"})
          .then(respuesta => respuesta.json())
         .then(Objeto => {
 
@@ -140,13 +136,20 @@
 // oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 //ALTA
-
-
-
-
-
+document.getElementById("btnAgregar").addEventListener("click", function(){
 
     
+    let Id = document.getElementById("idUsuario").value;
+    let Nombre = document.getElementById("nombreP").value;
+    let Genero = document.getElementById("generoP").value;
+    let FechaEstreno = document.getElementById("FEstreno").value;
+    let Duracion = document.getElementById("duracionT").value;
+
+
+
+
+})
+
     </script>
 
     <!-- intalar el npm install cors -->
