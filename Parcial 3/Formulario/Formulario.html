@@ -59,7 +59,7 @@
 
         
         let id = prompt("Teclee el ID del género musical");
-     // fetch('http://localhost:8082/cliente/'+id)
+    
      fetch('http://localhost:8082/pelicula/'+id)
          .then(respuesta => respuesta.json())
           .then(Objeto => {
@@ -134,40 +134,30 @@ document.getElementById("btnAgregar").addEventListener("click", function() {
                 
             };
 
-            // Realizar la solicitud POST al servidor
-            fetch('http://localhost:8082/pelicula', {
+                        // Realizar la solicitud POST al servidor
+                        fetch('http://localhost:8082/pelicula', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(pelicula)
             })
-            .then(respuesta => respuesta.json())
+                .then(respuesta => respuesta.json())
                 .then(resultado => {
+                // Mostrar el resultado de la operación en la consola
+                console.log(resultado);
 
-                      // Mostrar el resultado de la operación en la consola
-                    // console.log(resultado);
-                    // if (Objeto.estado == 1) {
-                    //     alert(Objeto.resultado);
-                    //     // Limpiar los campos del formulario después de agregar la película
-                    //     document.getElementById("nombreP").value = '';
-                    //     document.getElementById("idUsuario").value = '';
-                    //     document.getElementById("generoP").value = '';
-                    //     document.getElementById("FEstreno").value = '';
-                    //     document.getElementById("duracionT").value = '';
-                       
-                    // } else {
-                    //     alert(Objeto.resultado);
-                    // }
-                        document.getElementById("nombreP").value = "";
-                        document.getElementById("idUsuario").value = "";
-                        document.getElementById("generoP").value = "";
-                        document.getElementById("FEstreno").value = "";
-                        document.getElementById("duracionT").value = "";
-                        
-                });
-                let mensaje = alert("Pelicula agregado exitosamente.");
-            document.getElementById("mensaje").innerHTML = "Pelicula agregado exitosamente.";
+             // Limpiar los campos del formulario
+                document.getElementById("idUsuario").value = "";
+                document.getElementById("nombreP").value = "";
+                document.getElementById("generoP").value = "";
+                document.getElementById("FEstreno").value = "";
+                document.getElementById("duracionT").value = "";
+                
+            });
+            
+            let mensaje = alert("Género musical agregado exitosamente.");
+            document.getElementById("mensaje").innerHTML = "Género musical agregado exitosamente.";
         });       
 
 
