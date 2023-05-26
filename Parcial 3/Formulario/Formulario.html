@@ -42,6 +42,9 @@
         <button id="btnConsulta" type="button">Consultar</button>
         <button id="btnBorrar" type="button">Borrar</button>
         <button id="btnAgregar" type="button">Agregar</button>
+        <button id="btnModificar" type="button">Modificar</button>
+        <button id="btnLimpiar" type="button">Limpiar</button>
+
 
 
         <div id="mensaje" class="error-message"></div>
@@ -84,11 +87,11 @@
        });
     });
 
-// 7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+
     // BORRAR
       document.getElementById("btnBorrar").addEventListener("click", function(){
           let id = document.getElementById("idUsuario").value;
-           // fetch('http://localhost:8082/cliente/'+id)
+           
          fetch('http://localhost:8082/pelicula/'+id,{method:"DELETE"})
          .then(respuesta => respuesta.json())
         .then(Objeto => {
@@ -114,7 +117,6 @@
    });
 });
 
-// oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 //ALTA-Agregar
 document.getElementById("btnAgregar").addEventListener("click", function() {
@@ -156,9 +158,110 @@ document.getElementById("btnAgregar").addEventListener("click", function() {
                 
             });
             
-            let mensaje = alert("Género musical agregado exitosamente.");
-            document.getElementById("mensaje").innerHTML = "Género musical agregado exitosamente.";
-        });       
+            let mensaje = alert("Pelicula agregada exitosamente.");
+            document.getElementById("mensaje").innerHTML = "Pelicula agregada exitosamente.";
+        });      
+        
+       
+        // MODIFICAR
+        document.getElementById("btnModificar").addEventListener("click", function() {
+
+            let id = document.getElementById("idUsuario").value;
+            let nombre = document.getElementById("nombreroP").value;
+            let genero = document.getElementById("generoP").value;
+            let FechaEstreno = document.getElementById("FEstreno").value;
+            let duracion= document.getElementById("duracionT").value;
+
+
+            // Crear un objeto con los datos del nuevo género musical
+            let nuevoP = {
+                id: id,
+                nombre: nombre,
+                genero: genero,
+                FechaEstreno: FechaEstreno,
+                duracion: duracion,
+           
+            };
+
+            // Realizar la solicitud POST al servidor
+            fetch('http://localhost:8082/pelicula/'+document.getElementById("idUsuario").value, {
+                method: 'PUT',
+                headers: {
+                'Content-Type': 'application/json' //envia un ojbeto al body
+                },
+                body: JSON.stringify(nuevoP) //lo convierte a una cadena JSON 
+            })
+                .then(respuesta => respuesta.json())
+                .then(resultado => {
+                
+                console.log(resultado);
+                
+            });
+
+            //alert(datojson.resultado);
+            let mensaje = alert("Pelicula Modificada.");
+            document.getElementById("mensaje").innerHTML = "Pelicula Modificada.";
+
+
+
+
+            // // let Id = document.getElementById("idUsuario").value;
+            // let Nombre = document.getElementById("nombreP").value;
+            // let Genero = document.getElementById("generoP").value;
+            // let FechaEstreno = document.getElementById("FEstreno").value;
+            // let Duracion = document.getElementById("duracionT").value;
+           
+            // const pelicula = {
+               
+            //        Id:Id,
+            //        Nombre: Nombre,
+            //        Genero: Genero,
+            //        FechaEstreno: FechaEstreno,
+            //        Duracion: Duracion
+                
+            // };
+
+            //             // Realizar la solicitud PUT al servidor
+            //             fetch('http://localhost:8082/pelicula'+document.getElementById("idUsuario").value, {
+            //     method: 'PUT',
+            //     headers: {
+            //     'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(pelicula)
+            // })
+            //     .then(respuesta => respuesta.json())
+            //     .then(resultado => {
+            //     // Mostrar el resultado de la operación en la consola
+            //     console.log(resultado);
+
+            //  // Limpiar los campos del formulario
+            //     document.getElementById("idUsuario").value = "";
+            //     document.getElementById("nombreP").value = "";
+            //     document.getElementById("generoP").value = "";
+            //     document.getElementById("FEstreno").value = "";
+            //     document.getElementById("duracionT").value = "";
+                
+            // });
+            
+            // let mensaje = alert("Género musical agregado exitosamente.");
+            // document.getElementById("mensaje").innerHTML = "Género musical agregado exitosamente.";
+        });      
+        
+
+        //LIMPIAR LOS LABEL
+        document.getElementById("btnLimpiar").addEventListener("click", function() {
+
+            // Limpiar los campos del formulario
+            document.getElementById("idUsuario").value = "";
+            document.getElementById("nombreP").value = "";
+            document.getElementById("generoP").value = "";
+            document.getElementById("FEstreno").value = "";
+            document.getElementById("duracionT").value = "";
+
+            let mensaje = alert("Limpieza realizada");
+             document.getElementById("mensaje").innerHTML = "Limpieza realizada";
+
+        });
 
 
     </script>
