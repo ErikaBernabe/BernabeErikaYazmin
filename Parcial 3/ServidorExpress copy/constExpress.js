@@ -152,92 +152,84 @@ app.post('/pelicula', (req, res)=>{
 
 //MODIFICAR
 app.put('/pelicula/:Id', (req, res) => {
-  
-     let sentenciasql="update pelicula set"+
-                                                "Nombre='"+req.body.Nombre+"',"+
-                                                "Genero='"+req.body.Genero+"',"+
-                                                "FechaEstreno='"+req.body.FechaEstreno+"',"+
-                                                "Duracion='"+req.body.Duracion+"'"+"where Id"+req.params.Id;
-    //    let sentenciaSQL="update generosmusicales set "+
-    //    "nombre='"+req.body.nombre+"',"+
-    //    "descripcion='"+req.body.descripcion+"',"+
-    //    "popularidad='"+req.body.popularidad+"',"+
-    //    "fecha_creacion='"+req.body.fecha_creacion+"',"+
-    //    "ultima_modificacion='"+req.body.ultima_modificacion+"'"
-    //    +" where id="+ req.params.id;
-                                    
-       const connection = mysql.createConnection({
+
+    let sentenciaSQL="update pelicula set " +
+   "Nombre='"+req.body.Nombre+"',"+
+   "Genero='"+req.body.Genero+"',"+
+   "FechaEstreno='"+req.body.FechaEstreno+"',"+
+    "Duracion='"+req.body.Duracion+"'"+"where Id="+req.params.Id;
+
+    var connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: '',
+        password : '',
         database: 'peliculas'
-  });
-    
-   
+        
+    });
     connection.connect();
-       connection.query(sentenciaSQL, function (error, results, fields) {
-           if (error) {
-               res.json(error);
-           } else {
-               console.log(results);
-               if(results.affectedRows==1){
+
+    connection.query(sentenciaSQL,function(error, results,fields){
+        if(error){
+            res.json(error);
+
+        }else{
+            console.log(results);
+
+            if(results.affectedRows==1){
                 res.json({estado:1,
-                resultado:"Pelicula Modificado"});
-               } else{
+                resultado:"Pelicula Modificada"});
+            }else{
                 res.json({estado:1,
                 resultado:"Ocurrio un error"});
-               }
-           }
-       });
+            }
 
-       connection.end();
-  
+        }
+    });
+    connection.end();
 });
-// app.put('/pelicula/:Id', (req, res)=>{
-   
-//     var connection = mysql.createConnection({
-//         host: 'localhost',
-//         user: 'root',
-//         password : '',
-//         database: 'peliculas'
-
-//     });
-      
-//     let sentenciasql="update pelicula set"+
+// app.put('/pelicula/:Id', (req, res) => {
+  
+//      let sentenciasql="update pelicula set"+
 //                                                 "Nombre='"+req.body.Nombre+"',"+
 //                                                 "Genero='"+req.body.Genero+"',"+
 //                                                 "FechaEstreno='"+req.body.FechaEstreno+"',"+
 //                                                 "Duracion='"+req.body.Duracion+"'"+"where Id"+req.params.Id;
+//     //    let sentenciaSQL="update generosmusicales set "+
+//     //    "nombre='"+req.body.nombre+"',"+
+//     //    "descripcion='"+req.body.descripcion+"',"+
+//     //    "popularidad='"+req.body.popularidad+"',"+
+//     //    "fecha_creacion='"+req.body.fecha_creacion+"',"+
+//     //    "ultima_modificacion='"+req.body.ultima_modificacion+"'"
+//     //    +" where id="+ req.params.id;
+                                    
+//        const connection = mysql.createConnection({
+//         host: 'localhost',
+//         user: 'root',
+//         password: '',
+//         database: 'peliculas'
+//   });
+    
+   
+//     connection.connect();
+//        connection.query(sentenciaSQL, function (error, results, fields) {
+//            if (error) {
+//                res.json(error);
+//            } else {
+//                console.log(results);
+//                if(results.affectedRows==1){
+//                 res.json({estado:1,
+//                 resultado:"Pelicula Modificado"});
+//                } else{
+//                 res.json({estado:1,
+//                 resultado:"Ocurrio un error"});
+//                }
+//            }
+//        });
 
-//      console.log(sentenciasql);
-
-//      connection.connect();                                           
-
-//     connection.query(sentenciasql,function(error, results,fields){
-
-//      if(error){
-//          res.json(error);
-
-//      }else{
-//        console.log(results);
-//     //    res.json(results);
-//         if(results.affectedRows==1){
-//             res.json({estado:1,
-//             resultado:"cliente modificado"})
-//         }else{
-//             res.json({estado:1,
-//                 resultado:"Ocurrio un error"})
-            
-//         }
-
-
-//     }
-
-//     });
-//     connection.end();
-
+//        connection.end();
   
-// })
+//  });
+
 
 app.post('/', (req, res)=>{
     res.json({respuesta:"Respuesta a peticion get"})

@@ -164,23 +164,24 @@ document.getElementById("btnAgregar").addEventListener("click", function() {
         
        
         // MODIFICAR
-        document.getElementById("btnModificar").addEventListener("click", function() {
+        document.getElementById("btnModificar").addEventListener("click",  function() {
 
-            let id = document.getElementById("idUsuario").value;
-            let nombre = document.getElementById("nombreroP").value;
-            let genero = document.getElementById("generoP").value;
+           
+            let Id = document.getElementById("idUsuario").value;
+            let Nombre = document.getElementById("nombreP").value;
+            let Genero = document.getElementById("generoP").value;
             let FechaEstreno = document.getElementById("FEstreno").value;
-            let duracion= document.getElementById("duracionT").value;
+            let Duracion = document.getElementById("duracionT").value;
+           
 
 
             // Crear un objeto con los datos del nuevo género musical
-            let nuevoP = {
-                id: id,
-                nombre: nombre,
-                genero: genero,
-                FechaEstreno: FechaEstreno,
-                duracion: duracion,
-           
+            let nuevaPelicula = {
+                   Id:Id,
+                   Nombre: Nombre,
+                   Genero: Genero,
+                   FechaEstreno: FechaEstreno,
+                   Duracion: Duracion
             };
 
             // Realizar la solicitud POST al servidor
@@ -189,7 +190,7 @@ document.getElementById("btnAgregar").addEventListener("click", function() {
                 headers: {
                 'Content-Type': 'application/json' //envia un ojbeto al body
                 },
-                body: JSON.stringify(nuevoP) //lo convierte a una cadena JSON 
+                body: JSON.stringify(nuevaPelicula) //lo convierte a una cadena JSON 
             })
                 .then(respuesta => respuesta.json())
                 .then(resultado => {
@@ -202,49 +203,6 @@ document.getElementById("btnAgregar").addEventListener("click", function() {
             let mensaje = alert("Pelicula Modificada.");
             document.getElementById("mensaje").innerHTML = "Pelicula Modificada.";
 
-
-
-
-            // // let Id = document.getElementById("idUsuario").value;
-            // let Nombre = document.getElementById("nombreP").value;
-            // let Genero = document.getElementById("generoP").value;
-            // let FechaEstreno = document.getElementById("FEstreno").value;
-            // let Duracion = document.getElementById("duracionT").value;
-           
-            // const pelicula = {
-               
-            //        Id:Id,
-            //        Nombre: Nombre,
-            //        Genero: Genero,
-            //        FechaEstreno: FechaEstreno,
-            //        Duracion: Duracion
-                
-            // };
-
-            //             // Realizar la solicitud PUT al servidor
-            //             fetch('http://localhost:8082/pelicula'+document.getElementById("idUsuario").value, {
-            //     method: 'PUT',
-            //     headers: {
-            //     'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(pelicula)
-            // })
-            //     .then(respuesta => respuesta.json())
-            //     .then(resultado => {
-            //     // Mostrar el resultado de la operación en la consola
-            //     console.log(resultado);
-
-            //  // Limpiar los campos del formulario
-            //     document.getElementById("idUsuario").value = "";
-            //     document.getElementById("nombreP").value = "";
-            //     document.getElementById("generoP").value = "";
-            //     document.getElementById("FEstreno").value = "";
-            //     document.getElementById("duracionT").value = "";
-                
-            // });
-            
-            // let mensaje = alert("Género musical agregado exitosamente.");
-            // document.getElementById("mensaje").innerHTML = "Género musical agregado exitosamente.";
         });      
         
 
